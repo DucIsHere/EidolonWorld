@@ -1,0 +1,23 @@
+{
+  "type": "minecraft:noise_settings",
+  "value": {
+    "sea_level": 0,
+    "disable_mob_generation": false,
+    "noise": {
+      "min_y": -5000,
+      "height": 10000,
+      "size_horizontal": 2,
+      "size_vertical": 1,
+      "sampling": {
+        "xz_scale": 1.0,
+        "y_scale": 1.0,
+        "xz_factor": 1.0,
+        "y_factor": 1.0
+      }
+    },
+    "noise_router": "eidolonworld:eidolon_router",
+    "surface_rule": "eidolonworld:eidolon_surface",
+    "structures": {},
+    "spawn_target": "minecraft:overworld"
+  }
+}
