@@ -5,6 +5,15 @@ import net.minecraft.world.level.levelgen.SurfaceRules;
 import net.minecraft.world.level.block.Blocks;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import net.minecraft.core.Registry;
+import net.minecraft.resources.ResourceLocation;
+import net.minecraft.world.level.levelgen.SurfaceRules;
+import com.mojang.serialization.Codec;
+import net.minecraft.core.registries.Registries;
+import net.minecraft.resources.RegistryOps;
+import com.mojang.serialization.Dynamic;
+import com.mojang.serialization.JsonOps;
+import net.minecraft.server.packs.resources.ResourceManager;
 
 /**
  * EWSurfaceRules.java
@@ -34,6 +43,10 @@ public class EWSurfaceRules {
                         SurfaceRules.state(Blocks.DIRT.defaultBlockState())
                 )
         );
+
+    public static SurfaceRules.RuleScore getCustomRule() {
+        return null;
+    }
 
         LOGGER.info(" - Default surface rule (grass/dirt) prepared. Use JSON for full surface control.");
         return topGrass;
