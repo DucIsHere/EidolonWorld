@@ -1,0 +1,41 @@
+{
+  "type": "minecraft:surface_rule",
+  "value": {
+    "rules": [
+      {
+        "type": "minecraft:noise_threshold",
+        "noise": "eidolonworld:ridges",
+        "min_threshold": 0.5,
+        "then_run": {
+          "type": "minecraft:block",
+          "result_state": { "Name": "minecraft:stone" }
+        }
+      },
+      {
+        "type": "minecraft:noise_threshold",
+        "noise": "eidolonworld:mythic",
+        "min_threshold": 0.4,
+        "then_run": {
+          "type": "minecraft:block",
+          "result_state": { "Name": "minecraft:calcite" }
+        }
+      },
+      {
+        "type": "minecraft:noise_threshold",
+        "noise": "eidolonworld:rivers",
+        "max_threshold": -0.6,
+        "then_run": {
+          "type": "minecraft:block",
+          "result_state": { "Name": "minecraft:gravel" }
+        }
+      },
+      {
+        "type": "minecraft:default",
+        "result": {
+          "type": "minecraft:block",
+          "result_state": { "Name": "minecraft:dirt" }
+        }
+      }
+    ]
+  }
+}
