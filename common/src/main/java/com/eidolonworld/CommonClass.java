@@ -1,6 +1,6 @@
-package com.badgerson.larion;
+package com.eidolonworld;
 
-import com.badgerson.larion.platform.Services;
+import com.eidolonworld.platform.Services;
 import net.minecraft.core.registries.BuiltInRegistries;
 import net.minecraft.world.item.Items;
 
