@@ -1,4 +1,4 @@
-package com.badgerson.larion;
+package com.eidolonworld;
 
 import net.minecraft.world.level.levelgen.SurfaceRules;
 
