@@ -1,4 +1,4 @@
-package com.badgerson.larion.mixin;
+package com.eidolonworld.mixin;
 
 import org.spongepowered.asm.mixin.Mixin;
 
