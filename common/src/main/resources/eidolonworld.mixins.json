@@ -1,7 +1,7 @@
 {
   "required": true,
   "minVersion": "0.8",
-  "package": "com.eidolonworld.mixin.world",
+  "package": "com.eidolonworld.mixin",
   "compatibilityLevel": "JAVA_17",
   "mixins": [
     "NoiseChunkGeneratorMixin",
@@ -9,6 +9,8 @@
     "MaterialRuleContextMixin",
     "CaveWorldCarverMixin"
   ],
+  "client":[],
+  "sever":[],
   "injectors": {
     "defaultRequire": 1
   }
