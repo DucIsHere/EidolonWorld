@@ -1,11 +1,11 @@
-package com.badgerson.larion.mixin;
+package com.eidolonworld.mixin;
 
 import org.spongepowered.asm.mixin.Mixin;
 import org.spongepowered.asm.mixin.injection.Inject;
 import org.spongepowered.asm.mixin.injection.callback.CallbackInfo;
 
-import com.badgerson.larion.MaterialRuleContextExtensions;
-import com.badgerson.larion.SomewhatSteepSlopePredicate;
+import com.eidolonworld.MaterialRuleContextExtensions;
+import com.eidolonworld.SomewhatSteepSlopePredicate;
 
 import org.spongepowered.asm.mixin.injection.At;
 
