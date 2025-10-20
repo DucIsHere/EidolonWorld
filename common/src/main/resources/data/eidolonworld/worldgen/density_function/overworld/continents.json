@@ -1,0 +1,50 @@
+{
+  "type": "minecraft:spline",
+  "spline": {
+    "coordinate": {
+      "type": "eidolonworld:flat_domain_warp",
+      "input": "eidolonworld:overworld/continents/shapes",
+      "warp_x": {
+        "type": "minecraft:mul",
+        "argument1": 800,
+        "argument2": {
+          "type": "minecraft:noise",
+          "noise": "eidolonworld:continents/warp_x",
+          "xz_scale": 0.28,
+          "y_scale": 0.0
+        }
+      },
+      "warp_z": {
+        "type": "minecraft:mul",
+        "argument1": 800,
+        "argument2": {
+          "type": "minecraft:noise",
+          "noise": "eidolonworld:continents/warp_z",
+          "xz_scale": 0.28,
+          "y_scale": 0.0
+        }
+      }
+    },
+    "points": [
+      {
+        "location": 0.0,
+        "derivative": 8.0,
+        "value": {
+          "coordinate": "larion:overworld/continents/shroom",
+          "points": [
+            {
+              "location": 0.4,
+              "derivative": 0.0,
+              "value": -0.85
+            },
+            {
+              "location": 0.6,
+              "derivative": -0.5,
+              "value": -1.35
+            }
+          ]
+        }
+      },
+      {
+        "location": 0.16,
+        "derivative": 
