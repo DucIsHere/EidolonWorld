@@ -21,8 +21,7 @@ public class EidolonWorld implements ModInitializer {
 
         EWBiomes.register();
         EWNoiseRouter.register();
-        EWSurfaceRules.register();
-
+        
         LOGGER.info("[EidolonWorld] World generation modules loaded successfully.");
     }
 }
