@@ -1,0 +1,40 @@
+{
+  "type": "minecraft:mul",
+  "argument1": -1.0,
+  "argument2": {
+    "type": "minecraft:add",
+    "argument1": -0.12,
+    "argument2": {
+      "type": "minecraft:abs",
+      "argument": {
+        "type": "larion:flat_domain_warp",
+        "warp_x": {
+          "type": "minecraft:mul",
+          "argument1": 950,
+          "argument2": {
+            "type": "minecraft:noise",
+            "noise": "eidolonworld:vegetation/warp_x",
+            "xz_scale": 0.18,
+            "y_scale": 0.0
+          }
+        },
+        "warp_z": {
+          "type": "minecraft:mul",
+          "argument1": 950,
+          "argument2": {
+            "type": "minecraft:noise",
+            "noise": "eidolonworld:vegetation/warp_z",
+            "xz_scale": 0.18,
+            "y_scale": 0.0
+          }
+        },
+        "input": {
+          "type": "minecraft:noise",
+          "noise": "eidolonworld:ridges/weird",
+          "xz_scale": 0.3,
+          "y_scale": 0
+        }
+      }
+    }
+  }
+}
