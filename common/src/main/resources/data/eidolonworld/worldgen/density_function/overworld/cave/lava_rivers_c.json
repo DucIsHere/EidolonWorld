@@ -1,0 +1,6 @@
+{
+	"type": "minecraft:noise",
+	"noise": "eidolonworld:cave/lava_rivers_c",
+	"xz_scale": 0.9,
+	"y_scale": 0.1
+}
