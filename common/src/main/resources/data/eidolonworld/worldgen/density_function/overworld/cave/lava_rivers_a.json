@@ -2,7 +2,7 @@
 	"type": "minecraft:cache_once",
 	"argument": {
 		"type": "minecraft:noise",
-		"noise": "eidolonworld:caves/lava_rivers_a",
+		"noise": "eidolonworld:cave/lava_rivers_a",
 		"xz_scale": 0.9,
 		"y_scale": 0.1
 	}
