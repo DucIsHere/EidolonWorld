@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "id": "eidolonworld",
+  "version": "1.0.0",
+  "name": "Eidolon World",
+  "description": "A Legendary & Mythical Fantasy worldgen mod for Minecraft. Amplified noise, biome synthesis, and surreal landscapes.",
+  "authors": ["DucIsHere"],
+  "contact": {
+    "homepage": "https://github.com/EidolonWorld",
+    "sources": "https://github.com/EidolonWorld"
+  },
+  "license": "MIT",
+  "icon": "assets/eidolonworld/icon.png",
+  "environment": "*",
+  "entrypoints": {
+    "main": [
+      "com.eidolonworld.EidolonWorld"
+    ]
+  },
+  "depends": {
+    "fabricloader": ">=0.16.0",
+    "minecraft": "1.20.1",
+    "fabric": "*"
+  },
+  "mixins": [
+    "eidolonworld.mixins.json"
+  ],
+  "accessWidener": "eidolonworld.accesswidener"
+}
