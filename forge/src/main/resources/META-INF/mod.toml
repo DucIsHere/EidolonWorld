@@ -1,0 +1,32 @@
+modLoader = "javafml"
+loaderVersion = "[47,)" # Minecraft 1.20.1+
+license = "MIT"
+issueTrackerURL = "https://github.com/EidolonWorld/issues"
+
+[[mods]]
+modId = "eidolonworld"
+version = "1.0.0"
+displayName = "Eidolon World"
+updateJSONURL = ""
+displayURL = "https://github.com/EidolonWorld"
+logoFile = "assets/eidolonworld/icon.png"
+credits = "Inspired by Larion & JJ Thunder | Developed by [DucIsHere]"
+authors = "[DucIsHere]"
+description = '''
+Eidolon World — Legendary & Mythical Fantasy Terrain Mod.
+Custom world generation, amplified noise, and dynamic biomes.
+'''
+
+[[dependencies.eidolonworld]]
+modId = "minecraft"
+mandatory = true
+versionRange = "[1.20.1,]"
+ordering = "NONE"
+side = "BOTH"
+
+[[dependencies.eidolonworld]]
+modId = "forge"
+mandatory = true
+versionRange = "[47,]"
+ordering = "NONE"
+side = "BOTH"
