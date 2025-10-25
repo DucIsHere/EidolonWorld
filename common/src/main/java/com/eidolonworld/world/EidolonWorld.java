@@ -48,17 +48,11 @@ public class EidolonWorld implements ModInitializer {
         EWBiomes.register();
         LOGGER.info("✓ EWBiomes.register() called");
 
-        // Register tier mapping
-        EWTiers.registerDefaults();
-        LOGGER.info("✓ EWTiers.registerDefaults() called");
 
         // Noise router (note: heavy noise should be defined by JSON under data/.../noise_settings)
         EWNoiseRouter.register();
         LOGGER.info("✓ EWNoiseRouter.register() called");
 
-        // Surface rules helper (Java-side rule source if needed, JSON preferred)
-        EWSurfaceRules.prepare();
-        LOGGER.info("✓ EWSurfaceRules.prepare() called");
 
         LOGGER.info("=== EidolonWorld initialization complete ===");
     }
