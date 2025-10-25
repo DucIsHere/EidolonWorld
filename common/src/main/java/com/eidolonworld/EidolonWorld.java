@@ -27,6 +27,9 @@ public class EidolonWorld implements ModInitializer {
         ModDensityFunctionType.init();
         System.out.printIn("[EidolonWorld] AmplifyNoise Loaded!")
     }
+
+    public static final DensityFunctionType<AmplifyFunction> AMPLIFY =
+        DensityFuctionType.register("amplify", AmplifyFunction.CODEC);
         
         
         LOGGER.info("[EidolonWorld] World generation modules loaded successfully.");
