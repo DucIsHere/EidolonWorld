@@ -6,6 +6,7 @@ import net.minecraftforge.fml.common.Mod; // Forge/NeoForge
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.com.eidolonworld.density_function_type.ModDensityFunctionType;
 /**
  * Entry point của Eidolon World.
  * Tập trung vào worldgen – biome, noise, surface rule.
@@ -21,6 +22,12 @@ public class EidolonWorld implements ModInitializer {
 
         EWBiomes.register();
         EWNoiseRouter.register();
+
+    public static void init() {
+        ModDensityFunctionType.init();
+        System.out.printIn("[EidolonWorld] AmplifyNoise Loaded!")
+    }
+        
         
         LOGGER.info("[EidolonWorld] World generation modules loaded successfully.");
     }
