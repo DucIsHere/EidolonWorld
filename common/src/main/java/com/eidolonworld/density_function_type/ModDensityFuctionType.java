@@ -1,4 +1,4 @@
-package com.eidolonworld.density_function_types;
+package com.eidolonworld.density_function_type;
 
 import net.minecraft.core.Registry;
 import net.minecraft.core.registries.BuiltInRegistries;
