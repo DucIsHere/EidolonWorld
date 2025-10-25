@@ -1,0 +1,76 @@
+accessWidener v2 named
+
+#############################
+# ======== WORLDGEN ========
+#############################
+
+# NoiseRouter (quản lý luồng noise)
+accessible class net/minecraft/world/level/levelgen/NoiseRouter
+mutable field net/minecraft/world/level/levelgen/NoiseRouter barrierNoise Lnet/minecraft/world/level/levelgen/DensityFunction;
+mutable field net/minecraft/world/level/levelgen/NoiseRouter fluidLevelFloodednessNoise Lnet/minecraft/world/level/levelgen/DensityFunction;
+mutable field net/minecraft/world/level/levelgen/NoiseRouter fluidLevelSpreadNoise Lnet/minecraft/world/level/levelgen/DensityFunction;
+mutable field net/minecraft/world/level/levelgen/NoiseRouter lavaNoise Lnet/minecraft/world/level/levelgen/DensityFunction;
+mutable field net/minecraft/world/level/levelgen/NoiseRouter temperature Lnet/minecraft/world/level/levelgen/DensityFunction;
+mutable field net/minecraft/world/level/levelgen/NoiseRouter vegetation Lnet/minecraft/world/level/levelgen/DensityFunction;
+mutable field net/minecraft/world/level/levelgen/NoiseRouter continents Lnet/minecraft/world/level/levelgen/DensityFunction;
+mutable field net/minecraft/world/level/levelgen/NoiseRouter erosion Lnet/minecraft/world/level/levelgen/DensityFunction;
+mutable field net/minecraft/world/level/levelgen/NoiseRouter depth Lnet/minecraft/world/level/levelgen/DensityFunction;
+mutable field net/minecraft/world/level/levelgen/NoiseRouter ridges Lnet/minecraft/world/level/levelgen/DensityFunction;
+mutable field net/minecraft/world/level/levelgen/NoiseRouter initialDensityWithoutJaggedness Lnet/minecraft/world/level/levelgen/DensityFunction;
+mutable field net/minecraft/world/level/levelgen/NoiseRouter finalDensity Lnet/minecraft/world/level/levelgen/DensityFunction;
+
+#############################
+# ======= DENSITY ==========
+#############################
+
+accessible class net/minecraft/world/level/levelgen/DensityFunctionTypes
+accessible class net/minecraft/world/level/levelgen/DensityFunctions
+accessible method net/minecraft/world/level/levelgen/DensityFunctionTypes register (Ljava/lang/String;Lcom/mojang/serialization/Codec;)Lnet/minecraft/world/level/levelgen/DensityFunction$Type;
+extendable class net/minecraft/world/level/levelgen/DensityFunction
+extendable class net/minecraft/world/level/levelgen/DensityFunction$SimpleFunction
+accessible class net/minecraft/world/level/levelgen/DensityFunction$FunctionContext
+
+#############################
+# ====== NOISE DATA ========
+#############################
+
+accessible class net/minecraft/world/level/levelgen/NoiseRouterData
+accessible method net/minecraft/world/level/levelgen/NoiseRouterData overworld ()Lnet/minecraft/world/level/levelgen/NoiseRouter;
+accessible method net/minecraft/world/level/levelgen/NoiseRouterData buildNoiseRouter (Lnet/minecraft/world/level/levelgen/NoiseSettings;)Lnet/minecraft/world/level/levelgen/NoiseRouter;
+
+accessible class net/minecraft/world/level/levelgen/NoiseSettings
+mutable field net/minecraft/world/level/levelgen/NoiseSettings minY I
+mutable field net/minecraft/world/level/levelgen/NoiseSettings height I
+accessible method net/minecraft/world/level/levelgen/NoiseSettings create (III)Lnet/minecraft/world/level/levelgen/NoiseSettings;
+
+#############################
+# ====== CHUNK / SURFACE ===
+#############################
+
+accessible class net/minecraft/world/level/levelgen/NoiseChunk
+mutable field net/minecraft/world/level/levelgen/NoiseChunk router Lnet/minecraft/world/level/levelgen/NoiseRouter;
+accessible method net/minecraft/world/level/levelgen/NoiseChunk create (Lnet/minecraft/world/level/levelgen/NoiseRouter;Lnet/minecraft/world/level/levelgen/NoiseSettings;Lnet/minecraft/core/RegistryAccess;Lnet/minecraft/world/level/levelgen/RandomState;Lnet/minecraft/world/level/chunk/ChunkAccess;)Lnet/minecraft/world/level/levelgen/NoiseChunk;
+
+accessible class net/minecraft/world/level/levelgen/surfacebuilders/SurfaceRules
+accessible class net/minecraft/world/level/levelgen/surfacebuilders/SurfaceRules$Context
+extendable class net/minecraft/world/level/levelgen/surfacebuilders/SurfaceRules$ConditionSource
+extendable class net/minecraft/world/level/levelgen/surfacebuilders/SurfaceRules$RuleSource
+accessible method net/minecraft/world/level/levelgen/surfacebuilders/SurfaceRules context (Lnet/minecraft/world/level/biome/BiomeManager;Lnet/minecraft/world/level/levelgen/NoiseChunk;)Lnet/minecraft/world/level/levelgen/surfacebuilders/SurfaceRules$Context;
+
+#############################
+# ====== BIOME / GEN =======
+#############################
+
+accessible class net/minecraft/world/level/levelgen/GenerationStep$Decoration
+accessible class net/minecraft/world/level/levelgen/CarverConfiguration
+accessible class net/minecraft/world/level/levelgen/feature/FeaturePlaceContext
+accessible class net/minecraft/world/level/levelgen/structure/Structure
+accessible class net/minecraft/world/level/levelgen/structure/StructureSettings
+
+#############################
+# ====== DEBUG / RUNTIME ===
+#############################
+
+accessible class net/minecraft/world/level/levelgen/RandomState
+mutable field net/minecraft/world/level/levelgen/RandomState router Lnet/minecraft/world/level/levelgen/NoiseRouter;
+accessible method net/minecraft/world/level/levelgen/RandomState router ()Lnet/minecraft/world/level/levelgen/NoiseRouter;
