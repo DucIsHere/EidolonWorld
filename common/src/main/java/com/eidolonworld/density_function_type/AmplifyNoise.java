@@ -1,47 +1,69 @@
-package com.eidolonworld.density_function_type;
+package com.eidolonworld.density_function_types;
 
-import com.mojang.serialization.MapCodec;
+import com.mojang.serialization.Codec;
 import com.mojang.serialization.codecs.RecordCodecBuilder;
-import net.minecraft.util.KeyDispatchDataCodec;
+import net.minecraft.util.Mth;
 import net.minecraft.world.level.levelgen.DensityFunction;
 import net.minecraft.world.level.levelgen.DensityFunction.FunctionContext;
 
-public record AmplifyNoise(DensityFunction input, double factor) implements DensityFunction.SimpleFunction {
+public record AmplifyFunction(DensityFunction input, double multiplier, double waveScale) implements DensityFunction {
 
-    public static final MapCodec<AmplifyNoise> CODEC = RecordCodecBuilder.mapCodec((instance) ->
+    public static final Codec<AmplifyFunction> CODEC = RecordCodecBuilder.create(instance ->
         instance.group(
-            DensityFunction.Holder.CODEC.fieldOf("input").forGetter(AmplifyNoise::input),
-            com.mojang.serialization.codecs.PrimitiveCodec.DOUBLE.fieldOf("factor").forGetter(AmplifyNoise::factor)
-        ).apply(instance, AmplifyNoise::new)
+            DensityFunction.HOLDER_HELPER_CODEC.fieldOf("input").forGetter(AmplifyFunction::input),
+            Codec.DOUBLE.fieldOf("multiplier").forGetter(AmplifyFunction::multiplier),
+            Codec.DOUBLE.fieldOf("waveScale").forGetter(AmplifyFunction::waveScale)
+        ).apply(instance, AmplifyFunction::new)
     );
 
     @Override
-    public double compute(FunctionContext context) {
-        double base = input.compute(context);
-        double x = context.blockX();
-        double z = context.blockZ();
+    public double compute(FunctionContext ctx) {
+        double x = ctx.blockX();
+        double z = ctx.blockZ();
+        double base = input.compute(ctx);
 
-        // 💥 amplify biến động theo khoảng cách + sin + sqrt
-        double dist = Math.sqrt(x * x + z * z);
-        double wave = Math.sin(dist / 300.0) + Math.cos(x / 200.0);
-        double amp = 1.5 + (wave * 0.75) + (Math.sqrt(Math.abs(base)) * 0.5);
+        // √(x² + z²) để tạo biến động khoảng cách
+        double distance = Math.sqrt(x * x + z * z) * waveScale;
 
-        return base * factor * amp;
+        // Sine + cos kết hợp warp noise
+        double wave = Math.sin(distance * 2.0) * Math.cos(distance * 1.5);
+
+        // Combine base + wave với multiplier
+        double amplified = base * (1.0 + wave * multiplier);
+
+        // Clamp an toàn -1 → 1
+        return Mth.clamp(amplified, -1.0, 1.0);
     }
 
     @Override
-    public void fillArray(double[] arr, ContextProvider ctx) {
-        input.fillArray(arr, ctx);
-        for (int i = 0; i < arr.length; i++) arr[i] = arr[i] * factor;
+    public void fillArray(double[] array, ContextProvider ctx) {
+        input.fillArray(array, ctx);
+        for (int i = 0; i < array.length; i++) {
+            double x = ctx.blockX(i);
+            double z = ctx.blockZ(i);
+            double distance = Math.sqrt(x * x + z * z) * waveScale;
+            double wave = Math.sin(distance * 2.0) * Math.cos(distance * 1.5);
+            array[i] = Mth.clamp(array[i] * (4.5 + wave * multiplier), -1.0, 1.0);
+        }
     }
 
     @Override
-    public double minValue() { return input.minValue() * factor; }
-    @Override
-    public double maxValue() { return input.maxValue() * factor; }
+    public DensityFunction mapAll(Visitor visitor) {
+        return visitor.apply(new AmplifyFunction(input.mapAll(visitor), multiplier, waveScale));
+    }
 
     @Override
-    public KeyDispatchDataCodec<? extends DensityFunction> codec() {
-        return ModDensityFunctionTypes.AMPLIFY_NOISE.codec();
+    public double minValue() {
+        return input.minValue() * (1.0 - multiplier);
+    }
+
+    @Override
+    public double maxValue() {
+        return input.maxValue() * (1.0 + multiplier);
+    }
+
+    @Override
+    public DensityFunctionType<?> type() {
+        return EidolonDensityFunctions.AMPLIFY; // Đăng ký riêng trong EidolonDensityFunctions
     }
 }
