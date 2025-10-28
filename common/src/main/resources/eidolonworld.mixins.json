@@ -7,7 +7,8 @@
     "NoiseChunkGeneratorMixin",
     "SteepSlopePredicateMixin",
     "MaterialRuleContextMixin",
-    "CaveWorldCarverMixin"
+    "CaveWorldCarverMixin",
+    "AmplifyTerrianMixin"
   ],
   "client":[],
   "sever":[],
