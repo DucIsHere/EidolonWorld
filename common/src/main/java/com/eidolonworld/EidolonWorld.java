@@ -20,13 +20,10 @@ public class EidolonWorld implements ModInitializer {
     public void onInitialize() {
         LOGGER.info("[EidolonWorld] Initializing core worldgen systems...");
 
-        EWBiomes.register();
-        EWNoiseRouter.register();
-
-    public static void init() {
-        ModDensityFunctionType.init();
-        System.out.printIn("[EidolonWorld] AmplifyNoise Loaded!")
-    }
+        MaterialRuleContextExtension.registries();
+        SomewhatSteepMaterialCondition.registries();
+        SomewhatSteepSlopePredicate.registries();
+        
 
     public static final DensityFunctionType<AmplifyFunction> AMPLIFY =
         DensityFuctionType.register("amplify", AmplifyFunction.CODEC);
