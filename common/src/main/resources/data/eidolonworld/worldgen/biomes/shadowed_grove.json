@@ -37,6 +37,13 @@
         "maxCount": 2,
         "minCount": 5
       },
+      {
+        "type": "minecraft:creature",
+        "entity": "minecraft:chicken",
+        "weight": 90,
+        "minCount": 5,
+        "maxCount": 7
+      },
     ],
   },
   "features": []
