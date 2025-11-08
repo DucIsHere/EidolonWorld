@@ -1,0 +1,43 @@
+{
+  "name": "eidolonworld:shadowed_grove",
+  "precipitation": "rain",
+  "category": "forest",
+  "depth": 0.2,
+  "scale": 0.3,
+  "temperature": 0.7,
+  "downfall": 0.4,
+  "effects": {
+    "sky_color": 5013401,
+    "fog_color": 2631720,
+    "water_color": 329011,
+    "water_fog_color": 329011
+  },
+  "spawners": {
+    "monster":[
+      {
+        "type": "minecraft:monster",
+        "entity": "minecraft:zombie",
+        "weight": 150,
+        "minCount": 2,
+        "maxCount": 15
+      },
+      {
+        "type": "minecraft:monster",
+        "entity": "minecraft:creeper",
+        "weight": 70,
+        "minCount": 3,
+        "maxCount": 7
+      },
+    ],
+    "creature":[
+      {
+        "type": "minecraft:creature",
+        "entity": "minecraft:sheep",
+        "weight": 50,
+        "maxCount": 2,
+        "minCount": 5
+      },
+    ],
+  },
+  "features": []
+}
