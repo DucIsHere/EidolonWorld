@@ -18,7 +18,7 @@ Custom world generation, amplified noise, and dynamic biomes.
 '''
 
 [[dependencies.eidolonworld]]
-modId = "minecraft"
+modId = "architectury"
 mandatory = true
 versionRange = "[1.20.1,]"
 ordering = "NONE"
