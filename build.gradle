@@ -2,6 +2,8 @@ plugins {
 	id 'fabric-loom' version "${loom_version}"
 	id 'maven-publish'
 	id "org.jetbrains.kotlin.jvm" version "2.2.20"
+	id "architectury-plugin" version "3.4-SNAPSHOT"
+	id "dev.architectury.loom" version "1.3-SNAPSHOT" apply false
 }
 
 version = project.mod_version
